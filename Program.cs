@@ -1,4 +1,5 @@
 ﻿using System;
+using Patterns.DesignPatterns.Creational.AbstractFactory;
 using Patterns.DesignPatterns.Creational.Factory;
 
 namespace Patterns
@@ -17,6 +18,18 @@ namespace Patterns
 
             Factory = new NissanFactory("Qashqai");
             Console.WriteLine(Factory.CreateCar().Model);
+            #endregion
+
+            Separator();
+
+            #region Abstract Factory Design Pattern
+            PC NIPC = new PC(new NIPCFactory());
+            Console.WriteLine(NIPC.CPUInfo());
+            Console.WriteLine(NIPC.GPUInfo());
+
+            PC AMDPC = new PC(new AMDPCFactory());
+            Console.WriteLine(AMDPC.CPUInfo());
+            Console.WriteLine(AMDPC.GPUInfo());
             #endregion
 
             Separator();
