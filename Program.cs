@@ -2,6 +2,7 @@
 using Patterns.DesignPatterns.Creational.AbstractFactory;
 using Patterns.DesignPatterns.Creational.Factory;
 using Patterns.DesignPatterns.Creational.Singleton;
+using Patterns.DesignPatterns.Creational.Prototype;
 
 namespace Patterns
 {
@@ -46,6 +47,22 @@ namespace Patterns
 
             Console.WriteLine(company.GetDirectorName()); // Company one director
             Console.WriteLine(company1.GetDirectorName()); // Company one director
+            #endregion
+
+            Separator();
+
+            #region Prototype Design Pattern
+            IPaper Paper = new BookPaper();
+            IPaper PaperClone = Paper.Clone();
+
+            Console.WriteLine(Paper.PaperInfo());
+            Console.WriteLine(PaperClone.PaperInfo());
+
+            Paper = new PrintablePaper();
+            // PaperClone = Paper.Clone();
+
+            Console.WriteLine(Paper.PaperInfo());
+            Console.WriteLine(PaperClone.PaperInfo());
             #endregion
 
             Separator();
