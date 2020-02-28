@@ -1,6 +1,7 @@
 ﻿using System;
 using Patterns.DesignPatterns.Creational.AbstractFactory;
 using Patterns.DesignPatterns.Creational.Factory;
+using Patterns.DesignPatterns.Creational.Singleton;
 
 namespace Patterns
 {
@@ -30,6 +31,21 @@ namespace Patterns
             PC AMDPC = new PC(new AMDPCFactory());
             Console.WriteLine(AMDPC.CPUInfo());
             Console.WriteLine(AMDPC.GPUInfo());
+            #endregion
+
+            Separator();
+
+            #region Singleton Design Pattern
+            Company company = new Company();
+            Company company1 = new Company();
+
+            Console.WriteLine(company.GetDirectorName()); // %Director_Name%
+            Console.WriteLine(company1.GetDirectorName()); // %Director_Name%
+
+            company.SetDirectorName("Company one director");
+
+            Console.WriteLine(company.GetDirectorName()); // Company one director
+            Console.WriteLine(company1.GetDirectorName()); // Company one director
             #endregion
 
             Separator();
