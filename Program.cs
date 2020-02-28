@@ -3,7 +3,7 @@ using Patterns.DesignPatterns.Creational.AbstractFactory;
 using Patterns.DesignPatterns.Creational.Factory;
 using Patterns.DesignPatterns.Creational.Singleton;
 using Patterns.DesignPatterns.Creational.Prototype;
-
+using Patterns.DesignPatterns.Creational.Builder;
 namespace Patterns
 {
     class Program
@@ -63,6 +63,22 @@ namespace Patterns
 
             Console.WriteLine(Paper.PaperInfo());
             Console.WriteLine(PaperClone.PaperInfo());
+            #endregion
+
+            Separator();
+
+            #region Builder Design Pattern
+            BedCarpenter Carpenter = new BedCarpenter();
+
+            Bed PoorBed = Carpenter.Build();
+
+            Carpenter.ChangeBuilder(new RichBedBuilder());
+
+            Bed RichBed = Carpenter.Build();
+
+            Console.WriteLine(PoorBed);
+            Console.WriteLine();
+            Console.WriteLine(RichBed);
             #endregion
 
             Separator();
