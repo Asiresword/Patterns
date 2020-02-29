@@ -5,6 +5,7 @@ using Patterns.DesignPatterns.Creational.Singleton;
 using Patterns.DesignPatterns.Creational.Prototype;
 using Patterns.DesignPatterns.Creational.Builder;
 using Patterns.DesignPatterns.Behavioural.Strategy;
+using Patterns.DesignPatterns.Behavioural.Observer;
 
 namespace Patterns
 {
@@ -98,6 +99,18 @@ namespace Patterns
 
             programmer.SetLanguage(new JSLanguage());
             programmer.WriteProgram();
+            #endregion
+
+            Separator();
+
+            #region Observer
+            Server server = new Server();
+            SysAdmin admin = new SysAdmin(server);
+            Client client = new Client(server);
+
+            server.SetDown(true);
+            Console.WriteLine();
+            server.SetDown(false);
             #endregion
 
             Separator();
