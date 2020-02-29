@@ -6,6 +6,7 @@ using Patterns.DesignPatterns.Creational.Prototype;
 using Patterns.DesignPatterns.Creational.Builder;
 using Patterns.DesignPatterns.Behavioural.Strategy;
 using Patterns.DesignPatterns.Behavioural.Observer;
+using Patterns.DesignPatterns.Behavioural.Command;
 
 namespace Patterns
 {
@@ -91,6 +92,8 @@ namespace Patterns
 
             #endregion
 
+            // -------------------------------------------------------------- //
+
             #region Behavioural patterns
 
             #region Strategy
@@ -111,6 +114,22 @@ namespace Patterns
             server.SetDown(true);
             Console.WriteLine();
             server.SetDown(false);
+            #endregion
+
+            Separator();
+
+            #region Command
+            Lighter lighter = new Lighter();
+            lighter.SetCommand(new CigaretteCommand());
+
+            lighter.Lit();
+            lighter.StopLighter();
+
+            Console.WriteLine();
+            lighter.SetCommand(new StoveCommand());
+
+            lighter.Lit();
+            lighter.StopLighter();
             #endregion
 
             Separator();
