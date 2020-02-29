@@ -4,6 +4,8 @@ using Patterns.DesignPatterns.Creational.Factory;
 using Patterns.DesignPatterns.Creational.Singleton;
 using Patterns.DesignPatterns.Creational.Prototype;
 using Patterns.DesignPatterns.Creational.Builder;
+using Patterns.DesignPatterns.Behavioural.Strategy;
+
 namespace Patterns
 {
     class Program
@@ -12,8 +14,11 @@ namespace Patterns
         {
             Console.WriteLine(new string('-', 30));
         }
+
         internal static void Main()
         {
+            #region Creational patterns
+
             #region Factory Design Pattern
             CarFactory Factory = new ToyotaFactory("Highlander");
             Console.WriteLine(Factory.CreateCar().Model);
@@ -82,6 +87,22 @@ namespace Patterns
             #endregion
 
             Separator();
+
+            #endregion
+
+            #region Behavioural patterns
+
+            #region Strategy
+            Programmer programmer = new Programmer(new CSLanguage());
+            programmer.WriteProgram();
+
+            programmer.SetLanguage(new JSLanguage());
+            programmer.WriteProgram();
+            #endregion
+
+            Separator();
+
+            #endregion
         }
     }
 }
