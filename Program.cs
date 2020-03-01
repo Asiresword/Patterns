@@ -9,6 +9,7 @@ using Patterns.DesignPatterns.Behavioural.Observer;
 using Patterns.DesignPatterns.Behavioural.Command;
 using Patterns.DesignPatterns.Behavioural.Template;
 using Patterns.DesignPatterns.Behavioural.Iterator;
+using Patterns.DesignPatterns.Behavioural.State;
 
 namespace Patterns
 {
@@ -152,6 +153,17 @@ namespace Patterns
             Supervisor supervisor = new Supervisor();
 
             supervisor.SeeProducts(warehouse);
+            #endregion
+
+            Separator();
+
+            #region State
+            Water water = new Water();
+            water.Heat();
+            water.Heat();
+            water.Frost();
+            water.Frost();
+            water.Frost();
             #endregion
 
             Separator();
