@@ -7,6 +7,7 @@ using Patterns.DesignPatterns.Creational.Builder;
 using Patterns.DesignPatterns.Behavioural.Strategy;
 using Patterns.DesignPatterns.Behavioural.Observer;
 using Patterns.DesignPatterns.Behavioural.Command;
+using Patterns.DesignPatterns.Behavioural.Template;
 
 namespace Patterns
 {
@@ -130,6 +131,17 @@ namespace Patterns
 
             lighter.Lit();
             lighter.StopLighter();
+            #endregion
+
+            Separator();
+
+            #region Template Method
+            School school = new School();
+            University university = new University();
+
+            school.Start();
+            Console.WriteLine();
+            university.Start();
             #endregion
 
             Separator();
