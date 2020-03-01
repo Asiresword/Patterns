@@ -8,6 +8,7 @@ using Patterns.DesignPatterns.Behavioural.Strategy;
 using Patterns.DesignPatterns.Behavioural.Observer;
 using Patterns.DesignPatterns.Behavioural.Command;
 using Patterns.DesignPatterns.Behavioural.Template;
+using Patterns.DesignPatterns.Behavioural.Iterator;
 
 namespace Patterns
 {
@@ -142,6 +143,15 @@ namespace Patterns
             school.Start();
             Console.WriteLine();
             university.Start();
+            #endregion
+
+            Separator();
+
+            #region Iterator
+            Warehouse warehouse = new Warehouse();
+            Supervisor supervisor = new Supervisor();
+
+            supervisor.SeeProducts(warehouse);
             #endregion
 
             Separator();
