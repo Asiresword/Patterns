@@ -11,6 +11,7 @@ using Patterns.DesignPatterns.Behavioural.Template;
 using Patterns.DesignPatterns.Behavioural.Iterator;
 using Patterns.DesignPatterns.Behavioural.State;
 using Patterns.DesignPatterns.Behavioural.ChainOfResposibility;
+using Patterns.DesignPatterns.Behavioural.Interpreter;
 
 namespace Patterns
 {
@@ -182,6 +183,23 @@ namespace Patterns
             #endregion
 
             Separator();
+
+            #region Interpreter
+            InterpretContext Context = new InterpretContext();
+
+            Context.SetVariable("First", 10);
+            Context.SetVariable("Second", 5);
+            Context.SetVariable("Third", 20);
+
+            IExpression Expression = new SubtractExpression(
+                new AddExpression(
+                    new ValueExpression("First"), new ValueExpression("Second")
+                ),
+                new ValueExpression("Third")
+            );
+
+            Console.WriteLine(Expression.Interpretate(Context));
+            #endregion
 
             #endregion
         }
