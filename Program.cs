@@ -10,6 +10,7 @@ using Patterns.DesignPatterns.Behavioural.Command;
 using Patterns.DesignPatterns.Behavioural.Template;
 using Patterns.DesignPatterns.Behavioural.Iterator;
 using Patterns.DesignPatterns.Behavioural.State;
+using Patterns.DesignPatterns.Behavioural.ChainOfResposibility;
 
 namespace Patterns
 {
@@ -164,6 +165,20 @@ namespace Patterns
             water.Frost();
             water.Frost();
             water.Frost();
+            #endregion
+
+            Separator();
+
+            #region Chain Of Responsibility
+            TechSupport FirstLine = new FirstLineSupport();
+            TechSupport SecondLine = new SecondLineSupport();
+            TechSupport ThirdLine = new ThirdLineSupport();
+
+            FirstLine.AddChain(SecondLine);
+            SecondLine.AddChain(ThirdLine);
+
+            TechClient techClient = new TechClient(false, true, true);
+            FirstLine.Handle(techClient);
             #endregion
 
             Separator();
