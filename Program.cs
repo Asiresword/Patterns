@@ -12,6 +12,7 @@ using Patterns.DesignPatterns.Behavioural.Iterator;
 using Patterns.DesignPatterns.Behavioural.State;
 using Patterns.DesignPatterns.Behavioural.ChainOfResposibility;
 using Patterns.DesignPatterns.Behavioural.Interpreter;
+using Patterns.DesignPatterns.Behavioural.Mediator;
 
 namespace Patterns
 {
@@ -200,6 +201,25 @@ namespace Patterns
 
             Console.WriteLine(Expression.Interpretate(Context));
             #endregion
+
+            Separator();
+
+            #region Mediator
+            MediatorManager Manager = new MediatorManager();
+            JewelryActor Customer = new JewelryCustomer(Manager);
+            JewelryActor Seller = new JewelrySeller(Manager);
+            JewelryActor Master = new JewelryMaster(Manager);
+
+            Manager.SetCustomer(Customer);
+            Manager.SetSeller(Seller);
+            Manager.SetMaster(Master);
+
+            Customer.Send("I need a jewelry!");
+            Seller.Send("Create a jewelry.");
+            Master.Send("I've created a jewelry, you can take it.");
+            #endregion
+
+            Separator();
 
             #endregion
         }
