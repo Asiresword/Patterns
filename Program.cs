@@ -14,6 +14,7 @@ using Patterns.DesignPatterns.Behavioural.ChainOfResposibility;
 using Patterns.DesignPatterns.Behavioural.Interpreter;
 using Patterns.DesignPatterns.Behavioural.Mediator;
 using Patterns.DesignPatterns.Behavioural.Memento;
+using Patterns.DesignPatterns.Behavioural.Visitor;
 
 namespace Patterns
 {
@@ -237,6 +238,23 @@ namespace Patterns
             #endregion
 
             Separator();
+
+            #region Visitor
+            BuildingCompany buildingCompany = new BuildingCompany();
+            buildingCompany.Add(new Welder());
+            buildingCompany.Add(new Mason());
+
+            buildingCompany.Accept(new Foreman());
+            buildingCompany.Accept(new Architect());
+            #endregion
+
+            Separator();
+
+            #endregion
+
+            // -------------------------------------------------------------- //
+
+            #region Structural patterns
 
             #endregion
         }
