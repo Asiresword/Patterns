@@ -15,6 +15,7 @@ using Patterns.DesignPatterns.Behavioural.Interpreter;
 using Patterns.DesignPatterns.Behavioural.Mediator;
 using Patterns.DesignPatterns.Behavioural.Memento;
 using Patterns.DesignPatterns.Behavioural.Visitor;
+using Patterns.DesignPatterns.Structural.Decorator;
 
 namespace Patterns
 {
@@ -255,6 +256,26 @@ namespace Patterns
             // -------------------------------------------------------------- //
 
             #region Structural patterns
+
+            #region Decorator
+            Salad salad = new ClassicSalad();
+            salad = new CucumberSalad(salad);
+
+            Console.WriteLine($"Salad name: {salad.Name}");
+            Console.WriteLine($"Salad cost: {salad.GetCost()}");
+
+            salad = new TomatoSalad(salad);
+
+            Console.WriteLine($"Salad name: {salad.Name}");
+            Console.WriteLine($"Salad cost: {salad.GetCost()}");
+
+            salad = new PepperSalad(salad);
+
+            Console.WriteLine($"Salad name: {salad.Name}");
+            Console.WriteLine($"Salad cost: {salad.GetCost()}");
+            #endregion
+
+            Separator();
 
             #endregion
         }
