@@ -17,6 +17,7 @@ using Patterns.DesignPatterns.Behavioural.Memento;
 using Patterns.DesignPatterns.Behavioural.Visitor;
 using Patterns.DesignPatterns.Structural.Decorator;
 using Patterns.DesignPatterns.Structural.Adapter;
+using Patterns.DesignPatterns.Structural.Facade;
 
 namespace Patterns
 {
@@ -292,6 +293,19 @@ namespace Patterns
 
             driver.SetTransport(new AnimalToTransportAdapter(donkey));
             driver.StartRide();
+            #endregion
+
+            Separator();
+
+            #region Facade
+            PhoneOS phoneOS = new PhoneOS();
+            PhoneApp phoneApp = new PhoneApp();
+
+            PhoneFacade phoneFacade = new PhoneFacade(phoneOS, phoneApp);
+
+            PhoneUser phoneUser = new PhoneUser(phoneFacade);
+
+            phoneUser.UsePhone();
             #endregion
 
             Separator();
