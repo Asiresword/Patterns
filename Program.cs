@@ -16,6 +16,7 @@ using Patterns.DesignPatterns.Behavioural.Mediator;
 using Patterns.DesignPatterns.Behavioural.Memento;
 using Patterns.DesignPatterns.Behavioural.Visitor;
 using Patterns.DesignPatterns.Structural.Decorator;
+using Patterns.DesignPatterns.Structural.Adapter;
 
 namespace Patterns
 {
@@ -273,6 +274,24 @@ namespace Patterns
 
             Console.WriteLine($"Salad name: {salad.Name}");
             Console.WriteLine($"Salad cost: {salad.GetCost()}");
+            #endregion
+
+            Separator();
+
+            #region Adapter
+            Vehicle vehicle = new Vehicle();
+            Driver driver = new Driver(vehicle);
+
+            driver.StartRide();
+
+            Horse horse = new Horse();
+            Donkey donkey = new Donkey();
+
+            driver.SetTransport(new AnimalToTransportAdapter(horse));
+            driver.StartRide();
+
+            driver.SetTransport(new AnimalToTransportAdapter(donkey));
+            driver.StartRide();
             #endregion
 
             Separator();
