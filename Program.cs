@@ -18,6 +18,7 @@ using Patterns.DesignPatterns.Behavioural.Visitor;
 using Patterns.DesignPatterns.Structural.Decorator;
 using Patterns.DesignPatterns.Structural.Adapter;
 using Patterns.DesignPatterns.Structural.Facade;
+using Patterns.DesignPatterns.Structural.Composite;
 
 namespace Patterns
 {
@@ -306,6 +307,23 @@ namespace Patterns
             PhoneUser phoneUser = new PhoneUser(phoneFacade);
 
             phoneUser.UsePhone();
+            #endregion
+
+            Separator();
+
+            #region Composite
+            Component Dir1 = new Directory("Folder1");
+            Component File1 = new File("File1");
+            Component File2 = new File("File2");
+            Component Dir2 = new Directory("Folder2");
+            Component File3 = new File("File3");
+
+            Dir1.Add(File1);
+            Dir1.Add(File2);
+            Dir2.Add(File3);
+            Dir1.Add(Dir2);
+
+            Dir1.PrintComponent();
             #endregion
 
             Separator();
