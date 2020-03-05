@@ -19,6 +19,7 @@ using Patterns.DesignPatterns.Structural.Decorator;
 using Patterns.DesignPatterns.Structural.Adapter;
 using Patterns.DesignPatterns.Structural.Facade;
 using Patterns.DesignPatterns.Structural.Composite;
+using Patterns.DesignPatterns.Structural.Proxy;
 
 namespace Patterns
 {
@@ -324,6 +325,22 @@ namespace Patterns
             Dir1.Add(Dir2);
 
             Dir1.PrintComponent();
+            #endregion
+
+            Separator();
+
+            #region Proxy
+            using (IPartGetter PartProxy = new PartStoreProxy())
+            {
+                Part part = PartProxy.GetPartByName("Car part1");
+                Console.WriteLine(part.Description);
+
+                part = PartProxy.GetPartByName("Computer part1");
+                Console.WriteLine(part.Description);
+
+                part = PartProxy.GetPartByName("Car part1"); // This call is faster due to caching of received data
+                Console.WriteLine(part.Description);
+            }
             #endregion
 
             Separator();
