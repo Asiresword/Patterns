@@ -21,6 +21,7 @@ using Patterns.DesignPatterns.Structural.Facade;
 using Patterns.DesignPatterns.Structural.Composite;
 using Patterns.DesignPatterns.Structural.Proxy;
 using Patterns.DesignPatterns.Structural.Bridge;
+using Patterns.DesignPatterns.Structural.Flyweight;
 
 namespace Patterns
 {
@@ -360,6 +361,20 @@ namespace Patterns
             defender.Attack();
             defender.SetWeapon(new TwoHandedSword());
             defender.Defend();
+            #endregion
+
+            Separator();
+
+            #region Flyweight
+            SoldierFactory soldierFactory = new SoldierFactory();
+
+            Soldier sergeant = soldierFactory.GetSoldier('S');
+            Soldier lieutenant = soldierFactory.GetSoldier('L');
+            Soldier general = soldierFactory.GetSoldier('G');
+
+            Console.WriteLine(sergeant.GetInfo());
+            Console.WriteLine(lieutenant.GetInfo());
+            Console.WriteLine(general.GetInfo());
             #endregion
 
             Separator();
