@@ -20,6 +20,7 @@ using Patterns.DesignPatterns.Structural.Adapter;
 using Patterns.DesignPatterns.Structural.Facade;
 using Patterns.DesignPatterns.Structural.Composite;
 using Patterns.DesignPatterns.Structural.Proxy;
+using Patterns.DesignPatterns.Structural.Bridge;
 
 namespace Patterns
 {
@@ -341,6 +342,24 @@ namespace Patterns
                 part = PartProxy.GetPartByName("Car part1"); // This call is faster due to caching of received data
                 Console.WriteLine(part.Description);
             }
+            #endregion
+
+            Separator();
+
+            #region Bridge
+            Warrior attacker = new Attacker();
+            attacker.MakeABattleCry();
+            attacker.Attack();
+            attacker.SetWeapon(new SwordAndShield());
+            attacker.Defend();
+
+            Console.WriteLine();
+
+            Warrior defender = new Defender();
+            defender.MakeABattleCry();
+            defender.Attack();
+            defender.SetWeapon(new TwoHandedSword());
+            defender.Defend();
             #endregion
 
             Separator();
