@@ -37,6 +37,18 @@ namespace Patterns
             #region Creational patterns
 
             #region Factory Design Pattern
+            /*
+                Factory Method - a design pattern, that defines a common interface for creating objects in a superclass, 
+                                 allowing subclasses to change the type of objects, that being created.
+                Difficulty: 1 / 3
+                Popularity: 3 / 3
+                    When to use:
+                        1. When it is not known, what types of objects you need to create.
+                        2. When the system should be expandable and independent of the process of creating new objects.
+                        3. When you want to allow users to expand parts of your framework or library.
+                        4. When the creation of new objects must be delegated from the base class to the inherited classes.
+            */
+
             CarFactory Factory = new ToyotaFactory("Highlander");
             Console.WriteLine(Factory.CreateCar().Model);
 
@@ -47,6 +59,17 @@ namespace Patterns
             Separator();
 
             #region Abstract Factory Design Pattern
+            /*
+                Abstract Factory - a design pattern, that allows you to create groups of related objects 
+                                   without being tied to specific classes of created objects.
+                Difficulty: 2 / 3
+                Popularity: 3 / 3
+                    When to use:
+                        1. When a system needs to work with different types of related products, independent of specific product classes.
+                        2. When created objects should be used together and are interconnected.
+                        3. When a system already uses a Factory Method, but further changes involve the introduction of new types of products.
+            */
+
             PC NIPC = new PC(new NIPCFactory());
             Console.WriteLine(NIPC.CPUInfo());
             Console.WriteLine(NIPC.GPUInfo());
@@ -59,6 +82,15 @@ namespace Patterns
             Separator();
 
             #region Singleton Design Pattern
+            /*
+                Singleton - a design pattern, that ensures that the class has only one instance 
+                            and provides a global access point to it.
+                Difficulty: 1 / 3
+                Popularity: 2 / 3
+                    When to use:
+                        1. When you want a class to have only one instance.
+            */
+
             Company company = new Company();
             Company company1 = new Company();
 
@@ -74,6 +106,17 @@ namespace Patterns
             Separator();
 
             #region Prototype Design Pattern
+            /*
+                Prototype - a design pattern, that allows you to copy previously created prototype objects.
+                Difficulty: 1 / 3
+                Popularity: 2 / 3
+                    When to use:
+                        1. When a particular type of object to be created must be dynamically determined at run time.
+                        2. When it is undesirable to create a separate class hierarchy of factories 
+                                          to create product objects from a parallel class hierarchy.
+                        3. When cloning an object is a preferable option than creating and initializing it using the constructor.
+            */
+
             IPaper Paper = new BookPaper();
             IPaper PaperClone = Paper.Clone();
 
@@ -90,6 +133,16 @@ namespace Patterns
             Separator();
 
             #region Builder Design Pattern
+            /*
+                Builder - a design pattern, that allows you to create complex objects step by step.
+                Difficulty: 2 / 3
+                Popularity: 3 / 3
+                    When to use:
+                        1. When the process of creating a new object should not depend on 
+                           what parts this object consists of and how these parts are related.
+                        2. When it is necessary to ensure the receipt of various variations of an object in the process of its creation.
+            */
+
             BedCarpenter Carpenter = new BedCarpenter();
 
             Bed PoorBed = Carpenter.Build();
