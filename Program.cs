@@ -165,6 +165,18 @@ namespace Patterns
             #region Behavioural patterns
 
             #region Strategy
+            /*
+                Strategy - a design pattern, that defines a set of algorithms, 
+                           encapsulates each of them and ensures their interchangeability.
+                Difficulty: 1 / 3
+                Popularity: 3 / 3
+                    When to use:
+                        1. When you need to use different variants of an algorithm inside one object.
+                        2. When there are several related classes that differ in behavior.
+                        3. When it is necessary to change the behavior of objects at the program execution stage.
+                        4. When a class that uses certain functionality does not need to know anything about its implementation.
+            */
+
             Programmer programmer = new Programmer(new CSLanguage());
             programmer.WriteProgram();
 
@@ -175,6 +187,20 @@ namespace Patterns
             Separator();
 
             #region Observer
+            /*
+                Observer - a design pattern, that creates a subscription mechanism, that allows objects
+                           to monitor and respond to events occurring in other objects.
+                Difficulty: 2 / 3
+                Popularity: 3 / 3
+                    When to use:
+                        1. When a system consists of many classes whose objects must be in consistent states.
+                        2. When there is one object that sends messages, and many subscribers who receive messages. 
+                           Moreover, the exact number of subscribers is not known in advance and the process of the program may change.
+                        3. When the general scheme of interaction of objects involves two sides: 
+                           one sends messages and is the main one, the other receives messages and responds to them.
+                        4. When some objects must observe others, but only in certain cases.
+            */
+
             Server server = new Server();
             SysAdmin admin = new SysAdmin(server);
             Client client = new Client(server);
@@ -187,6 +213,17 @@ namespace Patterns
             Separator();
 
             #region Command
+            /*
+                Command - a design pattern, that allows you to encapsulate a request 
+                          to perform a specific action as a separate object.
+                Difficulty: 2 / 3
+                Popularity: 2 / 3
+                    When to use:
+                        1. When it is necessary to ensure the execution of the request queue, as well as their possible cancellation.
+                        2. When it is necessary to support logging of changes as a result of requests.
+                        3. When you want to parameterize objects with an action.
+            */
+
             Lighter lighter = new Lighter();
             lighter.SetCommand(new CigaretteCommand());
 
@@ -203,6 +240,16 @@ namespace Patterns
             Separator();
 
             #region Template Method
+            /*
+                Template Method - a design pattern, that defines a general algorithm for the behavior of subclasses, 
+                                  allowing them to override the individual steps of this algorithm without changing its structure.
+                Difficulty: 1 / 3
+                Popularity: 2 / 3
+                    When to use:
+                        1. When subclasses must extend the basic algorithm without changing its structure.
+                        2. When you have several classes doing the same thing with minor differences.
+            */
+
             School school = new School();
             University university = new University();
 
@@ -214,6 +261,17 @@ namespace Patterns
             Separator();
 
             #region Iterator
+            /*
+                Iterator - a design pattern, which makes it possible to sequentially go around the elements of 
+                           composite objects without revealing their internal representation.
+                Difficulty: 2 / 3
+                Popularity: 3 / 3
+                    When to use:
+                        1. When it is necessary to bypass an object without revealing its internal structure.
+                        2. When you need to provide several alternative options for iterating over the same object.
+                        3. When there is a set of composite objects, and you need to provide a single interface for iterating over.
+            */
+
             Warehouse warehouse = new Warehouse();
             Supervisor supervisor = new Supervisor();
 
@@ -223,6 +281,16 @@ namespace Patterns
             Separator();
 
             #region State
+            /*
+                State - a design pattern, that allows objects to change behavior depending on their state.
+                Difficulty: 1 / 3
+                Popularity: 2 / 3
+                    When to use:
+                        1. When the behavior of an object must depend on its state and can change dynamically at run time.
+                        2. When the class code contains many large, similar to each other, conditional statements,
+                           that select behaviors depending on the current values ​​of the class fields.
+            */
+
             Water water = new Water();
             water.Heat();
             water.Heat();
@@ -234,6 +302,18 @@ namespace Patterns
             Separator();
 
             #region Chain Of Responsibility
+            /*
+                Chain Of Responsibility - a design pattern, which allows you to send requests sequentially through a chain of handlers.
+                Difficulty: 2 / 3
+                Popularity: 1 / 3
+                    When to use:
+                        1. When there is more than one object that can handle a specific request.
+                        2. When it is necessary to transfer a request for execution to one of several objects, 
+                           without determining exactly which object.
+                        3. When a set of objects capable of processing a request must be set dynamically.
+                        4. When it is important that handlers are executed one by one in a strict order.
+            */
+
             TechSupport FirstLine = new FirstLineSupport();
             TechSupport SecondLine = new SecondLineSupport();
             TechSupport ThirdLine = new ThirdLineSupport();
@@ -248,6 +328,15 @@ namespace Patterns
             Separator();
 
             #region Interpreter
+            /*
+                Interpreter - a design pattern, that defines grammar representation for a given language.
+                Difficulty: 3 / 3
+                Popularity: 1 / 3
+                    When to use:
+                        1. When you want to make a binary sequence tree.
+                        2. When you want to make your data processing methods and use them in a binary tree.
+            */
+
             InterpretContext Context = new InterpretContext();
 
             Context.SetVariable("First", 10);
@@ -267,6 +356,16 @@ namespace Patterns
             Separator();
 
             #region Mediator
+            /*
+                Mediator - a design pattern, that allows the interaction of many objects without the need to refer to each other.
+                Difficulty: 2 / 3
+                Popularity: 2 / 3
+                    When to use:
+                        1. When there are many interconnected objects, the relationships between them are complex and confused.
+                        2. When you cannot reuse a class, because it depends on a lot of other classes.
+                        3. When you have to create many subclasses of components in order to use the same components in different contexts.
+            */
+
             MediatorManager Manager = new MediatorManager();
             JewelryActor Customer = new JewelryCustomer(Manager);
             JewelryActor Seller = new JewelrySeller(Manager);
@@ -284,6 +383,16 @@ namespace Patterns
             Separator();
 
             #region Memento
+            /*
+                Memento - a design pattern, which allows you to save and restore the past state of objects 
+                           without revealing the details of their implementation.
+                Difficulty: 3 / 3
+                Popularity: 1 / 3
+                    When to use:
+                        1. When you need to save the state of an object for possible subsequent restoration.
+                        2. When state preservation should take place without violating the principle of encapsulation.
+            */
+
             ChessPlayer chessPlayer = new ChessPlayer();
             PlayerHistory playerHistory = new PlayerHistory();
 
@@ -300,6 +409,16 @@ namespace Patterns
             Separator();
 
             #region Visitor
+            /*
+                Visitor - a design pattern, which allows you to add new operations to the program 
+                          without changing the classes of objects on which these operations can be performed.
+                Difficulty: 3 / 3
+                Popularity: 1 / 3
+                    When to use:
+                        1. When you need to perform some operation on all elements of a complex structure of objects.
+                        2. When new operations are often added to classes, while the general structure of classes is stable and practically unchanged.
+            */
+
             BuildingCompany buildingCompany = new BuildingCompany();
             buildingCompany.Add(new Welder());
             buildingCompany.Add(new Mason());
