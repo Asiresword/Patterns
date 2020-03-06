@@ -36,7 +36,7 @@ namespace Patterns
         {
             #region Creational patterns
 
-            #region Factory Design Pattern
+            #region Factory
             /*
                 Factory Method - a design pattern, that defines a common interface for creating objects in a superclass, 
                                  allowing subclasses to change the type of objects, that being created.
@@ -58,7 +58,7 @@ namespace Patterns
 
             Separator();
 
-            #region Abstract Factory Design Pattern
+            #region Abstract Factory
             /*
                 Abstract Factory - a design pattern, that allows you to create groups of related objects 
                                    without being tied to specific classes of created objects.
@@ -81,7 +81,7 @@ namespace Patterns
 
             Separator();
 
-            #region Singleton Design Pattern
+            #region Singleton
             /*
                 Singleton - a design pattern, that ensures that the class has only one instance 
                             and provides a global access point to it.
@@ -105,7 +105,7 @@ namespace Patterns
 
             Separator();
 
-            #region Prototype Design Pattern
+            #region Prototype
             /*
                 Prototype - a design pattern, that allows you to copy previously created prototype objects.
                 Difficulty: 1 / 3
@@ -132,7 +132,7 @@ namespace Patterns
 
             Separator();
 
-            #region Builder Design Pattern
+            #region Builder
             /*
                 Builder - a design pattern, that allows you to create complex objects step by step.
                 Difficulty: 2 / 3
@@ -436,6 +436,15 @@ namespace Patterns
             #region Structural patterns
 
             #region Decorator
+            /*
+                Decorator - a design pattern, that allows you to dynamically connect additional functionality to the object.
+                Difficulty: 2 / 3
+                Popularity: 2 / 3
+                    When to use:
+                        1. When you need to dynamically add new functionality to an object.
+                        2. When it is impossible to extend the responsibilities of an object through inheritance.
+            */
+
             Salad salad = new ClassicSalad();
             salad = new CucumberSalad(salad);
 
@@ -456,6 +465,15 @@ namespace Patterns
             Separator();
 
             #region Adapter
+            /*
+                Adapter - a design pattern, that allows objects with incompatible interfaces to work together.
+                Difficulty: 1 / 3
+                Popularity: 3 / 3
+                    When to use:
+                        1. When you want to use a class, but its interface does not match the rest of the application code.
+                        2. When you need to use an existing class with other classes which interfaces are not compatible.
+            */
+
             Vehicle vehicle = new Vehicle();
             Driver driver = new Driver(vehicle);
 
@@ -474,6 +492,17 @@ namespace Patterns
             Separator();
 
             #region Facade
+            /*
+                Facade - a design pattern, that allows you to hide the complexity of the system by 
+                         providing a simplified interface for interacting with it.
+                Difficulty: 1 / 3
+                Popularity: 2 / 3
+                    When to use:
+                        1. When you need to present a simple or stripped down interface for a complex subsystem.
+                        2. When you need to reduce the number of dependencies between the client and the complex system.
+                        3. When you need to determine the subsystem of components in a complex system.
+            */
+
             PhoneOS phoneOS = new PhoneOS();
             PhoneApp phoneApp = new PhoneApp();
 
@@ -487,6 +516,15 @@ namespace Patterns
             Separator();
 
             #region Composite
+            /*
+                Composite - a design pattern, that allows you to group multiple objects into a single tree structure.
+                Difficulty: 2 / 3
+                Popularity: 2 / 3
+                    When to use:
+                        1. When objects should be implemented as a hierarchical tree structure.
+                        2. When clients must uniformly manage both entire objects and their component parts.
+            */
+
             Component Dir1 = new Directory("Folder1");
             Component File1 = new File("File1");
             Component File2 = new File("File2");
@@ -504,6 +542,17 @@ namespace Patterns
             Separator();
 
             #region Proxy
+            /*
+                Proxy - a design pattern, that provides an alternate object that controls access to another object.
+                Difficulty: 2 / 3
+                Popularity: 1 / 3
+                    When to use:
+                        1. When you need to control access to a resource, the creation of which is resource-intensive.
+                        2. When it is necessary to differentiate access to the caller.
+                        3. When it is necessary to communicate over the network.
+                        4. When it is necessary to count references to an object or to ensure thread-safe operation with a real object.
+            */
+
             using (IPartGetter PartProxy = new PartStoreProxy())
             {
                 Part part = PartProxy.GetPartByName("Car part1");
@@ -520,6 +569,16 @@ namespace Patterns
             Separator();
 
             #region Bridge
+            /*
+                Bridge - a design pattern, which allows you to separate the abstraction from the implementation 
+                         so that both the abstraction and the implementation can be changed independently of each other.
+                Difficulty: 3 / 3
+                Popularity: 1 / 3
+                    When to use:
+                        1. When it is necessary to avoid binding abstraction to implementation.
+                        2. When along with the implementation, it is necessary to change the abstraction independently of each other.
+            */
+
             Warrior attacker = new Attacker();
             attacker.MakeABattleCry();
             attacker.Attack();
@@ -538,6 +597,15 @@ namespace Patterns
             Separator();
 
             #region Flyweight
+            /*
+                Flyweight - a design pattern, that allows you to use shared objects in several contexts at once
+                Difficulty: 3 / 3
+                Popularity: 1 / 3
+                    When to use:
+                        1. When an application uses a large number of monotonous objects, which is why a large amount of memory is allocated.
+                        2. When a part of the state of an object that is mutable can be taken out.
+            */
+
             SoldierFactory soldierFactory = new SoldierFactory();
 
             Soldier sergeant = soldierFactory.GetSoldier('S');
