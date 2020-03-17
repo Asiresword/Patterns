@@ -19,7 +19,7 @@ namespace Patterns.DesignPatterns.Creational.Factory
         }
         public override string Model
         {
-            get { return _Model; }
+            get { return $"Nissan {_Model}"; }
             set => _Model = value;
         }
     }

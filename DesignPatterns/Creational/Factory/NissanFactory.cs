@@ -14,7 +14,7 @@ namespace Patterns.DesignPatterns.Creational.Factory
 
         public override Car CreateCar()
         {
-            return new ToyotaCar(this._Model);
+            return new NissanCar(this._Model);
         }
     }
 }

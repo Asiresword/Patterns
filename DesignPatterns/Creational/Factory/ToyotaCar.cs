@@ -17,7 +17,7 @@ namespace Patterns.DesignPatterns.Creational.Factory
             get { return _Manufacturer; }
         }
         public override string Model { 
-            get { return _Model; }
+            get { return $"Toyota {_Model}"; }
             set => _Model = value;
         }
     }
